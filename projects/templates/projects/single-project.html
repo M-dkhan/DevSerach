@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+
+
+
+{% block  content%}
+{% include 'navbar.html' %}
+<span>
+    <h2>{{project.title}}</h2>
+    <img src="{{project.featured_image.url}}" alt="">
+</span>
+
+{% endblock content %}
+

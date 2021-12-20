@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+{% include 'navbar.html' %}
+
+{%for project in projects%}
+<h1> {{project.title}}  |  <a href="{% url 'single-project' project.id %}">view|<a href="{% url 'update-project' project.id %}">update</a>| </a>|<a href="{% url 'delete-project' project.id %}">delete</a> </a></h1>
+
+{% endfor  %}
+
+{% endblock content %}
