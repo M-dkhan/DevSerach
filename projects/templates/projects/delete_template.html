@@ -3,6 +3,7 @@
 
 
 {% block content %}
+{% include 'navbar.html' %}
 <form  method="post">
     {% csrf_token %}
     <p>Are you sure want to Delete {{project.title}}</p>

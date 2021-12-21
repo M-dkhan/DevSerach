@@ -3,10 +3,55 @@
 
 {% block content %}
 {% include 'navbar.html' %}
-
-{%for project in projects%}
+ 
+<section class="bannerProjects text-center ">
+ <div class="container">
+   <div class="row pt-5">
+     <div class="col ">
+       <h3 class="mb-3 display-4">Search For <strong>Projects</strong></h3>
+     </div>
+   </div>
+   <div class="row justify-content-center mt-4 searchbar">
+     <form>
+       <div class="col">
+         <div class="form-group">
+           <input type="text" class="form-control pl-5 pr-5" placeholder="Search For Developers Around World">
+         </div>
+       </div>
+       <button type="submit" class="btn search-button pl-5 pr-5">Search</button>
+     </form>
+   </div>
+ </div>
+</section>
+<section class="banner-2 text-center">
+ <div class="container pt-5">
+   <div class="row no-gutters justify-content-center">
+    {% for project in projects %} 
+    <div class="col projectscard">
+        <div class="card" style="width: 18rem; text-align: start;">
+        <img class="card-img-top" src="{{project.featured_image.url}}" alt="Card image cap">
+        <div class="card-body">
+            <!-- <a href="{% url 'single-project' project.id %}" style="">
+            </a> -->
+            <h5 class="card-title">{{project.title}}</h5>
+            <p class="card-text"> <a href="User profile"> Zaid Khan</a> </p>
+            <p class="card-text">{{project.vote_ratio}}% Positive Feedback ({{project.vote_total}}Vote{{project.vote_total|pluralize:"s"}})</p>
+            {% for tag in project.tags.all %}
+            
+            <p class="d-inline-block project-tags" >{{tag.name}}</p>
+            
+            {% endfor  %}
+        </div>
+        </div>
+        
+        </div>
+    {% endfor %}
+   </div>
+ </div>
+</section>
+<!-- {%for project in projects%}
 <h1> {{project.title}}  |  <a href="{% url 'single-project' project.id %}">view|<a href="{% url 'update-project' project.id %}">update</a>| </a>|<a href="{% url 'delete-project' project.id %}">delete</a> </a></h1>
 
-{% endfor  %}
+{% endfor  %} -->
 
 {% endblock content %}
